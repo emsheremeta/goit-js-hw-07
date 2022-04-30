@@ -1,3 +1,4 @@
+
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
@@ -28,6 +29,15 @@ function createGalleryItems (galleryItems) {
   
 };
 
+function handleModalOpen(source){
+    const {create} = window.basicLightbox;
+    const createTemplate = (src) => `<img class = "basicLightbox--img" src =" ${src}"/>`
+
+    const instance = create(createTemplate(source));
+    instance.visible();
+    instance.show();
+}
+
 function handleGalleryClick (event) {
     event.preventDefault();
    const isGalleryItem = event.target.classList.contains('.gallery__item');
@@ -35,5 +45,6 @@ function handleGalleryClick (event) {
     if (!isGalleryItem){
         return;
     }
-   return event.target.dataset.original; 
+   return handleModalOpen(event.target.dataset.source) 
 }
+

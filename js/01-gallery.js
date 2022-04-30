@@ -6,7 +6,7 @@ console.log(galleryItems);
 const addGalleryItems = document.querySelector('.gallery');
 const galleryMarup = createGalleryItems (galleryItems);// хранит результат функции
 
-addGalleryItems.insertAdjacentHTML("beforebegin", galleryMarup);
+addGalleryItems.insertAdjacentHTML("afterbegin", galleryMarup);
 addGalleryItems.addEventListener("click", handleGalleryClick)
 
 function createGalleryItems (galleryItems) {

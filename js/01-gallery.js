@@ -29,6 +29,7 @@ function createGalleryItems (galleryItems) {
 };
 
 function handleGalleryClick (event) {
+    event.preventDefault();
    const isGalleryItem = event.target.classList.contains('.gallery__item');
 
     if (!isGalleryItem){

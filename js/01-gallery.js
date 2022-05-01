@@ -14,7 +14,7 @@ function createGalleryItems (galleryItems) {
     return galleryItems.map (({preview, original, description }) => {
         return `
         <div class="gallery__item">
-        <a class="gallery__link" href="large-image.jpg">
+        <a class="gallery__link" href="${original}">
           <img
             class="gallery__image"
             src="${preview}"
@@ -31,12 +31,12 @@ function createGalleryItems (galleryItems) {
 
 function handleGalleryClick (event) {
   event.preventDefault();
- const isGalleryItem = event.target.classList.contains('.gallery__image');
+ const isGalleryItem = event.target.classList.contains('gallery__image');
 
   if (!isGalleryItem){
       return;
   }
- return handleModalOpen(event.target.dataset.source) 
+  handleModalOpen(event.target.dataset.source) 
 }
 
 function handleModalOpen(source){

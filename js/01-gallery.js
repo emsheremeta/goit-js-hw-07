@@ -29,22 +29,19 @@ function createGalleryItems (galleryItems) {
   
 };
 
-function handleModalOpen(source){
-    const {create} = window.basicLightbox;
-    const createTemplate = (src) => `<img class = "basicLightbox--img" src =" ${src}"/>`
-
-    const instance = create(createTemplate(source));
-    instance.visible();
-    instance.show();
-}
-
 function handleGalleryClick (event) {
-    event.preventDefault();
-   const isGalleryItem = event.target.classList.contains('.gallery__item');
+  event.preventDefault();
+ const isGalleryItem = event.target.classList.contains('.gallery__image');
 
-    if (!isGalleryItem){
-        return;
-    }
-   return handleModalOpen(event.target.dataset.source) 
+  if (!isGalleryItem){
+      return;
+  }
+ return handleModalOpen(event.target.dataset.source) 
 }
 
+function handleModalOpen(source){
+  const createTemplate = (src) => `<img class="basicLightbox--img" src="${src}"/>`
+
+  const instance = basicLightbox.create(createTemplate(source));
+  instance.show();
+}

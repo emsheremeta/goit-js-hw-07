@@ -28,6 +28,12 @@ function createGalleryItems (galleryItems) {
     .join('');
   
 };
+function handleModalOpen(source){
+  const createTemplate = (src) => `<img class="basicLightbox--img" src="${src}"/>`
+
+  const instance = basicLightbox.create(createTemplate(source));
+  instance.show();
+}
 
 function handleGalleryClick (event) {
   event.preventDefault();
@@ -39,9 +45,3 @@ function handleGalleryClick (event) {
   handleModalOpen(event.target.dataset.source) 
 }
 
-function handleModalOpen(source){
-  const createTemplate = (src) => `<img class="basicLightbox--img" src="${src}"/>`
-
-  const instance = basicLightbox.create(createTemplate(source));
-  instance.show();
-}

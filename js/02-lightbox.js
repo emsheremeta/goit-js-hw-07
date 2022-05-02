@@ -43,6 +43,7 @@ function handleGalleryClick (event) {
  */
  //const  lightbox = new SimpleLightbox('gallery ', { /* options */ });
  const gallery = new SimpleLightbox('.gallery a');
- gallery.on('show.simplelightbox', function () {
-   // do something…
+ gallery.on('show.simplelightbox',
+  function (handleModalOpen) {
+  const createTemplate = (src) => `<img title ="lightbox" src="${src}"/>`
  });

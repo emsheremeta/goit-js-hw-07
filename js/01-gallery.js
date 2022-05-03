@@ -33,6 +33,14 @@ function handleModalOpen(source){
 
   const instance = basicLightbox.create(createTemplate(source));
   instance.show();
+
+  const closeModal = document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape'){
+      console.log ('key : ', event.key);
+      console.log('code: ', event.code)
+      instance.close();
+    }
+  })
 }
 
 function handleGalleryClick (event) {
@@ -44,4 +52,5 @@ function handleGalleryClick (event) {
   }
   handleModalOpen(event.target.dataset.source) 
 }
+
 

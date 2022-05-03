@@ -14,7 +14,7 @@ function createGalleryItems (galleryItems) {
         return `
 
       <a class="gallery__item" 
-      href=""${original}">
+      href="${original}">
       <img class="gallery__image" 
       src="${preview}" 
       alt="${description}" />

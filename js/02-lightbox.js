@@ -34,16 +34,8 @@ function handleGalleryClick (event) {
     }
     
 }
-
-    
- //const lightbox = ('gallery').simpleLightbox(options);
-
- /*const gallery = $('gallery ').simpleLightbox();
- gallery.open();
- */
- //const  lightbox = new SimpleLightbox('gallery ', { /* options */ });
- const gallery = new SimpleLightbox('.gallery a');
- gallery.on('show.simplelightbox',
-  function (handleModalOpen) {
-  const createTemplate = (src) => `<img title ="lightbox" src="${src}"/>`
- });
+new SimpleLightbox(".gallery a", {
+  showCounter: false,
+  captionsData: "alt",
+  captionDelay: 250,
+});

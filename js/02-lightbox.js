@@ -34,8 +34,8 @@ function handleGalleryClick (event) {
     }
     
 }
-new SimpleLightbox(".gallery a", {
+new SimpleLightbox('.gallery a', {
   showCounter: false,
-  captionsData: "alt",
+  captionsData: 'alt',
   captionDelay: 250,
 });

@@ -28,33 +28,39 @@ function createGalleryItems (galleryItems) {
     .join('');
   
 };
-function handleModalOpen(source){
-  const createTemplate = (src) => `<img class="basicLightbox--img" src="${src}"/>`
 
-  const instance = basicLightbox.create(createTemplate(source));
-  instance.show();
-
-  const closeModal = window.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape'){
-      console.log ('key : ', event.key);
-      console.log('code: ', event.code)
-      instance.close();
-    }
-  }) 
+const instance = basicLightbox.create (
+  `<img class="modal-img" src="">`,
+  {
+    onShow: (instance) => {
+      window.addEventListener('keydown', handleModalClose);
+  },
+  },
+  {
+    onClose: (instance) => {
+      window.removeEventListener ('keydown',handleModalClose);
+  }
+  },
   
-}
+);
 
 function handleGalleryClick (event) {
   event.preventDefault();
- const isGalleryItem = event.target.classList.contains('gallery__image');
+ if ( event.target.nodeName !== 'IMG'){
+   return
+ }
+ instance.element().querySelector('.modal-img').src = event.target.dataset.source;
 
-  if (!isGalleryItem){
-      return;
-  }
-  handleModalOpen(event.target.dataset.source) 
+  instance.show();
 }
 
+function handleModalClose (event) {
+  if (event.key === 'Escape'){
+    console.log ('key : ', event.key);
+    console.log('code: ', event.code)
+    instance.close();
+    return;
+    
+  }
+}
 
-/*onShow: (instance) => {window.addEventListener('keydown') }
-    onClose: (instance) => {window.removeEventListener ('keydown')}
-    */
